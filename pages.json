@@ -1,0 +1,32 @@
+[
+    {
+        "topic": "lava.yaml",
+        "file": "src/configuration.md",
+        "header": "Configuration"
+    },
+    {
+        "topic": "scan",
+        "file": "src/commands/scan.md",
+        "header": "Scan"
+    },
+    {
+        "topic": "init",
+        "file": "src/commands/init.md",
+        "header": "Init"
+    },
+    {
+        "topic": "version",
+        "file": "src/commands/version.md",
+        "header": "Version"
+    },
+    {
+        "topic": "environment",
+        "file": "src/environment.md",
+        "header": "Environment"
+    },
+    {
+        "topic": "metrics",
+        "file": "src/metrics.md",
+        "header": "Metrics"
+    }
+]
