@@ -1,0 +1,51 @@
+# Copyright 2024 Adevinta
+
+name: Deploy Lava documentation to Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+# Allow only one concurrent deployment, skipping runs queued between
+# the run in-progress and latest queued. However, do not cancel
+# in-progress runs as we want to allow these production deployments to
+# complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Generate documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build documentation
+        run: ./build.bash
+        env:
+          MDBOOK_VERSION: v0.4.37
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'book'
+  deploy:
+    needs: build
+    permissions:
+      pages: write     # to deploy to Pages
+      id-token: write  # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
