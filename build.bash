@@ -32,7 +32,7 @@ install_mdbook() {
 	local url="https://github.com/rust-lang/mdBook/releases/download/${MDBOOK_VERSION}/mdbook-${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
 
 	curl -LsSf "${url}" | tar -xz -C "${dir}" mdbook 2> /dev/null
-	chmod +x ${dir}/mdbook
+	chmod +x "${dir}/mdbook"
 }
 
 install_dir=$(mktemp -d)
@@ -40,21 +40,21 @@ install_dir=$(mktemp -d)
 install_lava "${install_dir}"
 install_mdbook "${install_dir}"
 
-for row in $(cat pages.json | jq --compact-output '.[]'); do
+cat pages.json | jq --compact-output '.[]' | while read -r row; do
 	_jq() {
-		echo ${row} | jq --raw-output ${1}
+		echo "${row}" | jq --raw-output "${1}"
 	}
 	topic=$(_jq '.topic')
 	file=$(_jq '.file')
 	header=$(_jq '.header')
 
 	mkdir -p "$(dirname "${file}")"
-	${install_dir}/lava help "${topic}" > "${file}"
+	"${install_dir}/lava" help "${topic}" > "${file}"
 	fix_headers "${file}"
 	add_main_header "${file}" "${header}"
 done
 
-version=$(${install_dir}/lava version)
+version=$("${install_dir}/lava" version)
 echo "[${version}](https://github.com/adevinta/lava/releases/latest)" >> "src/SUMMARY.md"
 
-${install_dir}/mdbook build
+"${install_dir}/mdbook" build
