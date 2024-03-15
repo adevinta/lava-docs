@@ -1,32 +1,32 @@
 [
   {
     "topic": "scan",
-    "file": "src/commands/scan.md",
+    "file": "build/commands/scan.md",
     "header": "Run scan"
   },
   {
     "topic": "init",
-    "file": "src/commands/init.md",
+    "file": "build/commands/init.md",
     "header": "Init Lava project"
   },
   {
     "topic": "version",
-    "file": "src/commands/version.md",
+    "file": "build/commands/version.md",
     "header": "Print Lava version"
   },
   {
     "topic": "environment",
-    "file": "src/helpdoc/environment.md",
+    "file": "build/helpdoc/environment.md",
     "header": "Environment variables"
   },
   {
     "topic": "lava.yaml",
-    "file": "src/helpdoc/configuration.md",
+    "file": "build/helpdoc/configuration.md",
     "header": "Configuration file format"
   },
   {
     "topic": "metrics",
-    "file": "src/helpdoc/metrics.md",
+    "file": "build/helpdoc/metrics.md",
     "header": "Metrics collection"
   }
 ]
