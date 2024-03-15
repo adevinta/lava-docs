@@ -2,6 +2,10 @@
 
 [Introduction](README.md)
 
+# User manual
+
+- [Getting started](getting_started.md)
+
 # Commands
 
 - [Run scan](commands/scan.md)
