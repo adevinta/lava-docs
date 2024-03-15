@@ -1,20 +1,22 @@
+#!/usr/bin/env bash
 # Copyright 2024 Adevinta
 
 set -e -u
 
-if [[ -z $MDBOOK_VERSION ]]; then
-	echo 'error: missing env var MDBOOK_VERSION' >&2
-	exit 2
-fi
+cd "$(dirname $0)"
+
+MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.37}
 
 fix_headers() {
 	local file=$1
+
 	sed -i "s/^#/##/" "${file}"
 }
 
 add_main_header() {
 	local file=$1
 	local header=$2
+
 	sed -i "1i # ${header}" "${file}"
 }
 
