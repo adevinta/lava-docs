@@ -2,22 +2,20 @@
 
 [Introduction](README.md)
 
-# Configuration
+# User manual
 
-- [Configuration](configuration.md)
+- [Getting started](getting_started.md)
 
 # Commands
 
-- [Init](commands/init.md)
-- [Scan](commands/scan.md)
-- [Version](commands/version.md)
+- [Run scan](commands/scan.md)
+- [Init Lava project](commands/init.md)
+- [Print Lava version](commands/version.md)
 
-# Metrics
+# Additional help topics
 
-- [Metrics](metrics.md)
-
-# Environment
-
-- [Environment](environment.md)
+- [Environment variables](helpdoc/environment.md)
+- [Configuration file format](helpdoc/configuration.md)
+- [Metrics collection](helpdoc/metrics.md)
 
 ---

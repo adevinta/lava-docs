@@ -16,7 +16,7 @@ catalog shipped with Vulcan.
 ### Binary Distributions
 
 Official binary distributions are available at
-https://github.com/adevinta/lava/releases.
+<https://github.com/adevinta/lava/releases>.
 
 ### Install From Source
 
