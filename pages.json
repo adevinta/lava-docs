@@ -5,6 +5,11 @@
     "header": "Run scan"
   },
   {
+    "topic": "run",
+    "file": "build/commands/run.md",
+    "header": "Run single check"
+  },
+  {
     "topic": "init",
     "file": "build/commands/init.md",
     "header": "Init Lava project"
