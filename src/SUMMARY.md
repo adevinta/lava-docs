@@ -9,6 +9,7 @@
 # Commands
 
 - [Run scan](commands/scan.md)
+- [Run single check](commands/run.md)
 - [Init Lava project](commands/init.md)
 - [Print Lava version](commands/version.md)
 
