@@ -6,6 +6,7 @@ set -e -u
 cd "$(dirname $0)"
 
 MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.37}
+CHECKTYPES_VERSION=${CHECKTYPES_VERSION:-v0}
 
 fix_headers() {
 	local file=$1
@@ -18,6 +19,11 @@ add_main_header() {
 	local header=$2
 
 	sed -i "1i # ${header}" "${file}"
+}
+
+fetch_checktypes() {
+	local url="https://github.com/adevinta/lava-resources/releases/download/checktypes/${CHECKTYPES_VERSION}/checktypes.json"
+	curl -LsSf -o "build/checktypes.json" "${url}"
 }
 
 install_lava() {
@@ -55,6 +61,8 @@ cat pages.json | jq --compact-output '.[]' | while read -r row; do
 	fix_headers "${file}"
 	add_main_header "${file}" "${header}"
 done
+
+fetch_checktypes
 
 version=$("${install_dir}/lava" version)
 echo "[${version}](latest.md)" >> build/SUMMARY.md
