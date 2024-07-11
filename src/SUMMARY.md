@@ -2,22 +2,23 @@
 
 [Introduction](README.md)
 
+# Getting started
+
+- [Quick start](quick_start.md)
+
 # User manual
 
-- [Getting started](getting_started.md)
+- [Security controls](controls.md)
+- [Configuration file format](helpdoc/configuration.md)
+- [Checktype catalog file format](helpdoc/checktypes.md)
+- [Metrics collection](helpdoc/metrics.md)
+- [Environment variables](helpdoc/environment.md)
 
-# Commands
+# Command line interface
 
 - [Run scan](commands/scan.md)
 - [Run single check](commands/run.md)
 - [Init Lava project](commands/init.md)
 - [Print Lava version](commands/version.md)
 
-# Additional help topics
-
-- [Environment variables](helpdoc/environment.md)
-- [Configuration file format](helpdoc/configuration.md)
-- [Metrics collection](helpdoc/metrics.md)
-- [Checktype catalog file format](helpdoc/checktypes.md)
-- [Security controls](controls.md)
 ---
