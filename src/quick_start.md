@@ -1,4 +1,4 @@
-# Getting started
+# Quick start
 
 This guide is a brief introduction about how to start using Lava in
 your projects.
@@ -10,7 +10,7 @@ There are two supported options to install Lava:
 - Binary distributions
 - Source code
 
-### Binary Distributions
+### Binary distributions
 
 Install the latest Lava command with the following command:
 
@@ -22,7 +22,7 @@ $ curl -LsSf https://github.com/adevinta/lava/releases/latest/download/lava_linu
 Official binary distributions are available at
 <https://github.com/adevinta/lava/releases>.
 
-### Install From Source
+### Install from source
 
 Install the latest Lava command with `go install`.
 
