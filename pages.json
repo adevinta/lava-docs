@@ -33,5 +33,10 @@
     "topic": "metrics",
     "file": "build/helpdoc/metrics.md",
     "header": "Metrics collection"
+  },
+  {
+    "topic": "checktypes",
+    "file": "build/helpdoc/checktypes.md",
+    "header": "Checktype catalog file format"
   }
 ]
