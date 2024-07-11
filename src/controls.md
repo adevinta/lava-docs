@@ -1,4 +1,4 @@
-# Security Controls
+# Security controls
 
 Behind the scenes Lava uses other security tools and custom security
 checks to perform a security scan. Tools are integrated through what is called
