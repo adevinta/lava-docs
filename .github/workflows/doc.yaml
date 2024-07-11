@@ -2,11 +2,7 @@
 
 name: Deploy Lava documentation to Pages
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+on: [workflow_dispatch, push]
 
 permissions:
   contents: read
@@ -36,6 +32,7 @@ jobs:
           path: 'book'
   deploy:
     needs: build
+    if: ${{ github.ref == 'refs/heads/main' }}
     permissions:
       pages: write     # to deploy to Pages
       id-token: write  # to verify the deployment originates from an appropriate source

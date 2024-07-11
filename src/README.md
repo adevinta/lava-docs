@@ -11,6 +11,15 @@ Thus, Lava continuously benefits from Vulcan improvements.
 In fact, Lava is compatible with the [vulcan-checks][vulcan-checks]
 catalog shipped with Vulcan.
 
+The default Lava configuration covers the following security controls:
+- DAST (Dynamic Application Security Testing)
+- SAST (Static Application Security Testing)
+- SCA (Software Composition Analysis)
+- Secret detection
+
+For more details, please visit the [Security controls](controls.md)
+section of the documentation.
+
 ## Install
 
 ### Binary Distributions

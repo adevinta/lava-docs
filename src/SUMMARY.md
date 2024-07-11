@@ -18,5 +18,6 @@
 - [Environment variables](helpdoc/environment.md)
 - [Configuration file format](helpdoc/configuration.md)
 - [Metrics collection](helpdoc/metrics.md)
-
+- [Checktype catalog file format](helpdoc/checktypes.md)
+- [Security controls](controls.md)
 ---
