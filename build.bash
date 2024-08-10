@@ -7,6 +7,8 @@ cd "$(dirname $0)"
 
 MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.37}
 
+source autolinks.bash
+
 fix_headers() {
 	local file=$1
 
@@ -53,6 +55,7 @@ cat pages.json | jq --compact-output '.[]' | while read -r row; do
 	mkdir -p "$(dirname "${file}")"
 	"${install_dir}/lava" help "${topic}" > "${file}"
 	fix_headers "${file}"
+	fix_autolinks "${file}"
 	add_main_header "${file}" "${header}"
 done
 
