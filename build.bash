@@ -5,7 +5,7 @@ set -e -u
 
 cd "$(dirname $0)"
 
-MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.37}
+MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.40}
 
 source autolinks.bash
 
