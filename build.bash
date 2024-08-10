@@ -10,7 +10,7 @@ MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.37}
 fix_headers() {
 	local file=$1
 
-	sed -i "s/^#/##/" "${file}"
+	sed -i 's/^#/##/' "${file}"
 }
 
 add_main_header() {
@@ -22,15 +22,15 @@ add_main_header() {
 
 install_lava() {
 	local dir=$1
-	local url='https://github.com/adevinta/lava/releases/latest/download/lava_linux_amd64.tar.gz'
 
+	local url='https://github.com/adevinta/lava/releases/latest/download/lava_linux_amd64.tar.gz'
 	curl -LsSf "${url}" | tar -xz -C "${dir}" lava 2> /dev/null
 }
 
 install_mdbook() {
 	local dir=$1
-	local url="https://github.com/rust-lang/mdBook/releases/download/${MDBOOK_VERSION}/mdbook-${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
 
+	local url="https://github.com/rust-lang/mdBook/releases/download/${MDBOOK_VERSION}/mdbook-${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
 	curl -LsSf "${url}" | tar -xz -C "${dir}" mdbook 2> /dev/null
 	chmod +x "${dir}/mdbook"
 }
