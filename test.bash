@@ -5,4 +5,7 @@ set -e -u
 
 cd "$(dirname $0)"
 
-./autolinks_test.bash
+source ./docker/docker.bash
+
+docker_compose build lava-docs-test
+docker_compose run --rm lava-docs-test
