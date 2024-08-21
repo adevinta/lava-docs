@@ -12,7 +12,6 @@
 - [Configuration file format](helpdoc/configuration.md)
 - [Checktype catalog file format](helpdoc/checktypes.md)
 - [Metrics collection](helpdoc/metrics.md)
-- [Environment variables](helpdoc/environment.md)
 
 # Command line interface
 
@@ -20,5 +19,6 @@
 - [Run single check](commands/run.md)
 - [Init Lava project](commands/init.md)
 - [Print Lava version](commands/version.md)
+- [Environment variables](helpdoc/environment.md)
 
 ---
