@@ -5,11 +5,11 @@ security checks in your local and CI/CD environments.
 
 <p align="center"><img width="128" alt="Lava logo" src="https://github.com/adevinta/lava-resources/releases/download/logo/v0.1.0/lava_512px.png"></p>
 
-Lava is part of the [Vulcan ecosystem][vulcan-docs] and it is built on
-top of the same components that power Vulcan.
+Lava is part of the [Vulcan ecosystem] and it is built on top of the
+same components that power Vulcan.
 Thus, Lava continuously benefits from Vulcan improvements.
-In fact, Lava is compatible with the [vulcan-checks][vulcan-checks]
-catalog shipped with Vulcan.
+In fact, Lava is compatible with the [vulcan-checks] catalog shipped
+with Vulcan.
 
 The default Lava configuration covers the following security controls:
 - SAST (Static Application Security Testing).
@@ -18,18 +18,17 @@ The default Lava configuration covers the following security controls:
 - Secret detection.
 - DAST (Dynamic Application Security Testing).
 
-
-For more details, please visit the [Security controls](controls.md)
-section of the documentation.
+For more details, visit the [Security controls] section
+of the documentation.
 
 ## Install
 
-### Binary Distributions
+### Binary distributions
 
 Official binary distributions are available at
 <https://github.com/adevinta/lava/releases>.
 
-### Install From Source
+### Install from source
 
 Install the Lava command with `go install`.
 
@@ -39,26 +38,27 @@ go install github.com/adevinta/lava/cmd/lava@latest
 
 ### GitHub Actions
 
-Lava is also available as an action that can be used from GitHub
-Actions workflows.
-Visit [adevinta/lava-action][lava-action] for usage instructions.
+GitHub Actions are provided to make it easy to run Lava from a GitHub
+Actions workflow.
+Visit the [GitHub Actions] section of the documentation for more
+details.
 
 ## Documentation
 
 Lava is self-documented.
-Please run `lava help` to get more information about the available
-commands and other related topics.
+Run `lava help` to get more information about the available commands
+and other related topics.
 
 ## Contributing
 
 **This project is in an early stage, we are not accepting external
 contributions yet.**
 
-To contribute, please read the [contribution
-guidelines][contributing].
+To contribute, please read the [contribution guidelines].
 
 
-[vulcan-docs]: https://adevinta.github.io/vulcan-docs
+[Vulcan ecosystem]: https://adevinta.github.io/vulcan-docs
 [vulcan-checks]: https://github.com/adevinta/vulcan-checks
-[lava-action]: https://github.com/adevinta/lava-action
-[contributing]: https://github.com/adevinta/lava/blob/main/CONTRIBUTING.md
+[Security controls]: controls.md
+[GitHub Actions]: github_actions.md
+[contribution guidelines]: https://github.com/adevinta/lava/blob/main/CONTRIBUTING.md
