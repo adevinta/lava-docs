@@ -5,6 +5,8 @@ set -e -u
 
 cd "$(dirname $0)/.."
 
+GH_DOWNLOAD_URL_LATEST_FMT='https://github.com/adevinta/lava/releases/latest/download/lava_linux_%s.tar.gz'
+GH_DOWNLOAD_URL_FMT='https://github.com/adevinta/lava/releases/download/%s/lava_linux_%s.tar.gz'
 MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.40}
 
 source ./docker/autolinks.bash
@@ -23,7 +25,8 @@ add_main_header() {
 }
 
 install_lava() {
-	local dir=$1
+	local version=$1
+	local dir=$2
 
 	local arch=''
 	case $(uname -m) in
@@ -37,8 +40,20 @@ install_lava() {
 			;;
 	esac
 
-	local url="https://github.com/adevinta/lava/releases/latest/download/lava_linux_${arch}.tar.gz"
-	curl -LsSf "${url}" | tar -xz -C "${dir}" lava 2> /dev/null
+	local url
+	if [[ $version == 'latest' ]]; then
+		url=$(printf "${GH_DOWNLOAD_URL_LATEST_FMT}" "${arch}")
+	else
+		url=$(printf "${GH_DOWNLOAD_URL_FMT}" "${version}" "${arch}")
+	fi
+
+	# Try to download a Lava release from GitHub.
+	if (curl -LsSf "${url}" | tar -xz -C "${dir}" lava) 2> /dev/null; then
+		return 0
+	fi
+
+	# Fallback to "go install".
+	GOBIN=$dir GOCACHE=$dir go install "github.com/adevinta/lava/cmd/lava@${version}"
 }
 
 install_mdbook() {
@@ -59,9 +74,14 @@ install_mdbook() {
 	chmod +x "${dir}/mdbook"
 }
 
+if [[ -z $LAVA_VERSION ]]; then
+	echo 'error: missing env var LAVA_VERSION' >&2
+	exit 2
+fi
+
 install_dir=$(mktemp -d)
 
-install_lava "${install_dir}"
+install_lava "${LAVA_VERSION}" "${install_dir}"
 install_mdbook "${install_dir}"
 
 rm -rf build && cp -R src build

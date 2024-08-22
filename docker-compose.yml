@@ -8,6 +8,8 @@ services:
       context: .
     volumes:
       - .:/lava-docs
+    environment:
+      LAVA_VERSION: ${LAVA_VERSION:-latest}
     command: ["/lava-docs/docker/build.bash"]
 
   lava-docs-test:
