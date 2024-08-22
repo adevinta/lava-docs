@@ -5,9 +5,13 @@ set -e -u
 
 cd "$(dirname $0)/.."
 
+MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.40}
+
 GH_DOWNLOAD_URL_LATEST_FMT='https://github.com/adevinta/lava/releases/latest/download/lava_linux_%s.tar.gz'
 GH_DOWNLOAD_URL_FMT='https://github.com/adevinta/lava/releases/download/%s/lava_linux_%s.tar.gz'
-MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.40}
+GOCACHE_DIR='/go-cache'
+GOMODCACHE_DIR='/go-mod-cache'
+LAVA_SRC_DIR='/lava'
 
 source ./docker/autolinks.bash
 
@@ -53,8 +57,15 @@ install_lava() {
 	fi
 
 	# Fallback to "go install".
-	GOBIN=$dir GOCACHE=$dir go install "github.com/adevinta/lava/cmd/lava@${version}"
+	GOBIN=$dir GOCACHE=$GOCACHE_DIR GOMODCACHE=$GOMODCACHE_DIR go install "github.com/adevinta/lava/cmd/lava@${version}"
 }
+
+build_lava() (
+	local dir=$1
+
+	cd "${LAVA_SRC_DIR}"
+	GOBIN=$dir GOCACHE=$GOCACHE_DIR GOMODCACHE=$GOMODCACHE_DIR go install "./cmd/lava"
+)
 
 install_mdbook() {
 	local dir=$1
@@ -81,7 +92,12 @@ fi
 
 install_dir=$(mktemp -d)
 
-install_lava "${LAVA_VERSION}" "${install_dir}"
+if [[ -d '/lava/cmd/lava' ]]; then
+	build_lava "${install_dir}"
+else
+	install_lava "${LAVA_VERSION}" "${install_dir}"
+fi
+
 install_mdbook "${install_dir}"
 
 rm -rf build && cp -R src build
