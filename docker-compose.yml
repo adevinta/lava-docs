@@ -1,7 +1,5 @@
 # Copyright 2024 Adevinta
 
-version: "2.4"
-
 services:
   lava-docs-build:
     build:
