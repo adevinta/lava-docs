@@ -5,8 +5,6 @@ set -e -u
 
 cd "$(dirname $0)/.."
 
-MDBOOK_VERSION=${MDBOOK_VERSION:-v0.4.40}
-
 GH_DOWNLOAD_URL_LATEST_FMT='https://github.com/adevinta/lava/releases/latest/download/lava_linux_%s.tar.gz'
 GH_DOWNLOAD_URL_FMT='https://github.com/adevinta/lava/releases/download/%s/lava_linux_%s.tar.gz'
 GOCACHE_DIR='/go-cache'

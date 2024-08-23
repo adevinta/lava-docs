@@ -8,6 +8,7 @@ services:
       - .:/lava-docs
     environment:
       LAVA_VERSION: ${LAVA_VERSION:-latest}
+      MDBOOK_VERSION: ${MDBOOK_VERSION:-v0.4.40}
     command: ["/lava-docs/docker/build.bash"]
 
   lava-docs-test:
