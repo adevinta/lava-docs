@@ -1,0 +1,19 @@
+# Copyright 2024 Adevinta
+
+services:
+  lava-docs-build:
+    build:
+      context: .
+    volumes:
+      - .:/lava-docs
+    environment:
+      LAVA_VERSION: ${LAVA_VERSION:-latest}
+      MDBOOK_VERSION: ${MDBOOK_VERSION:-v0.4.40}
+    command: ["/lava-docs/docker/build.bash"]
+
+  lava-docs-test:
+    build:
+      context: .
+    volumes:
+      - .:/lava-docs
+    command: ["/lava-docs/docker/test.bash"]
